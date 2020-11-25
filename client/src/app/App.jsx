@@ -4,14 +4,11 @@ import axios from 'axios';
 export default () => {
   const [text, setText] = useState('Hello');
 
-  useEffect(() => {
-    axios
-      .get('/')
-      .then((data) => setText(data))
-      .catch((err) => {
-        throw new Error(err);
-      });
+  useEffect(async () => {
+    const response = await axios.get('/');
+    console.log(response.data)
+    setText(response.data)
   }, []);
 
-  return <div className="app">{text.text}</div>;
+  return <div className="app">{text}</div>;
 };

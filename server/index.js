@@ -5,11 +5,11 @@ const path = require('path');
 const app = express();
 
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, '../client/dist')));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, '../client/dist/index.html')));
 
 app.get('/', (req, res) => {
-  console.log('happy potato');
-  res.send({ text: 'happy potato ' });
+  res.send('happy potato');
 });
 
 app.listen(3000, () => {
