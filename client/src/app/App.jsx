@@ -6,8 +6,7 @@ export default () => {
 
   useEffect(async () => {
     const response = await axios.get('/');
-    console.log(response.data)
-    setText(response.data)
+    setText(response.data);
   }, []);
 
   return <div className="app">{text}</div>;
